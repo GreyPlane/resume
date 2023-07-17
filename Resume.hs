@@ -22,7 +22,8 @@ about =
     "简介"
     "About"
     [ paragraph
-        [ en "I'm a self-learned programmer who has a bachelor's degree in Communications, working across almost the whole lifecycle of modern application development, but especially focusing on Functional Programming and Stream Processing. And with some academic interest in Programming Language Theory and Distributed Systems, read some papers, and do a little bit of research as a hobby. Currently work at Convertlab, a leading digital marketing company in China."
+        [ cn "自学程序员，全栈开发，覆盖现代Web应用开发的整个生命流程（前端、后端、大数据、运维开发），特别专注于函数式编程和流处理系统，同时对一些偏学术的领域也有涉猎（编程语言理论、分布式系统），平时会读一些Paper做一些研究。目前在中国领先的数字化营销SaaS服务商Convertlab工作。",
+          en "I'm a self-learned programmer who has a bachelor's degree in Communications, working across almost the whole lifecycle of modern application development, but especially focusing on Functional Programming and Stream Processing. And with some academic interest in Programming Language Theory and Distributed Systems, read some papers, and do a little bit of research as a hobby. Currently work at Convertlab, a leading digital marketing company in China."
         ]
     ]
 
@@ -56,7 +57,8 @@ convertlabFE =
           en "\\role{React Front-end Engineer}{Application Team}"
         ],
       itemize
-        [ cn $ "\\item 基于React、Redux、Typescript的业务开发。",
+        [ cn $ "\\item 独立地在产品已有的H5页面搭建、渲染基础上添加了金数据的表单跳转规则功能，涉及页面渲染、图计算、多端兼容性等等问题。",
+          cn $ "\\item 基于React、Redux、Typescript的业务开发。",
           en $ "\\item Application development based on React and Redux, using Typescript.",
           cn $ "\\item 将Typescript的构建工具链整合进项目已有的webpack build pipeline中。",
           en $ "\\item Integrate Typescript toolchain into the existing webpack build pipeline, enable our team to migrate to Typescript gradually.",
@@ -66,6 +68,56 @@ convertlabFE =
           -- en $ "\\item low-code form building tools and correspond runtime."
         ]
     ]
+
+clBD :: Resume
+clBD =
+  paragraph
+    [ datedSection (date "2021" "04" ~~ date "至今" "") $
+        paragraph
+          [ cn "\\textbf{上海欣兆阳信息科技有限公司}",
+            en "\\textbf{Convertlab Inc.}"
+          ],
+      paragraph
+        [ cn "\\role{数据开发工程师}{Data Team}",
+          en "\\role{Data Engineer}{Data Team}"
+        ],
+      itemize
+        [ cn "\\item 维护和开发公司旗舰产品——数字化营销云DMHUB的核心功能模块自动流程，独立地负责和产品经理、开发经理讨论需求，设计技术方案并且实现。",
+          cn "\\item 从COO或者CTO处接受一些实验、研究性质的任务（公司知识库搭建、URL处理规范等），独立的研究对应技术解决方案并落地实现。",
+          cn "\\item 设计并实现了一个用于聚合和基于条件过滤消息发送的中间件，保证了聚合的exactly-once的delivery semantic并且提供了实时的速率查看和启动停发送，使用Akka Stream和Kafka Stream。",
+          cn "\\item 在于腾讯合作的项目TMC（腾讯营销云）中，独立地的负责设计、实现了自动流程对接有数智能群组、标签的能力，其中包括业务开发、方案设计、大数据能力（Spark，HBase）的使用和表设计。",
+          cn "\\item 认证的Cloudera系统管理员，也负责一部分Spark Job的实现和各种存储（Kudu、HBase、MongoDB）的表设计等。",
+          cn "\\item 使用Grails和Groovy或Java和Spring进行其他功能模块的维护和开发，"
+        ]
+    ]
+
+reactflow :: Resume
+reactflow =
+  paragraph
+    [ title,
+      cn
+        "一个低延迟、高吞吐的流处理系统，使用户可以通过画布预先定义好整个营销旅程的逻辑（例如当客户发生什么事件时，如果满足什么属性，就对他以某个渠道通过某个物料进行触达）从而实现数字化、自动化营销的业务目的。",
+      itemize
+        [ cn "\\item 整套功能完全通过Scala语言及Akka实现，消息队列使用了Kafka，存储使用MongoDB和MySQL，普通配置的单节点可以达到20000/s左右的消费速率，并且通过Akka Cluster实现了高可用、可扩展的集群。",
+          cn "\\item 作为营销云产品的最核心功能，串联起其他模块，是前场同事销售、交付项目时的核心卖点，也是客户复购产品License时的核心竞争力。",
+          cn "\\item 通过Akka Streaming和Kafak支撑上千个流程上亿客户稳定同时运行。"
+        ]
+    ]
+  where
+    title = datedSection (cn "") (bold "Reactflow")
+
+knwoledgeGraph :: Resume
+knwoledgeGraph =
+  paragraph
+    [ title,
+      cn "POC项目，根据COO对公司战略的规划，搭建知识库优化交付效率、减少项目交付中知识传递带来的成本，通过提供一个平台让交付同事可以方便的录入并通过一定的逻辑/模式对知识进行检索。",
+      itemize
+        [ cn "\\item 独立设计技术方案、调研技术选型、实现产品，最终顺利完成POC并在公司做了一定范围的推广使用，取得了不错的效果。",
+          cn "\\item 使用Neo4J和Cypher查询语言，实现了一些图算法、图计算的逻辑。"
+        ]
+    ]
+  where
+    title = datedSection (cn "") (bold "KnowledgeGraph")
 
 convertlabBD :: Resume
 convertlabBD =
@@ -89,8 +141,8 @@ convertlabBD =
           en "\\item Design and implement a middleware that batches upstream messages and ensures the exactly-once delivery semantic by using Akka Stream and Kafka Stream.",
           cn "\\item 独立完成了一个知识图谱项目的POC，使用Neo4J，Scala系的neotypes、fs2、cats-effect等，实现了基于本体图谱进行实体图谱的CRUD并提供了基于一些比较简单模式（例如和当前实体关联最多的实体）的查询。",
           en "\\item Delivery a POC project for knowledge graph by using Neo4J and Scala typelevel stack, implement CRUD based on Ontology relations and a basic search.",
-          -- cn "\\item 使用HBase、Impala+Kudu、Hive，负责功能开发时需要使用的存储结构的设计。",
-          -- en "\\item using HBase, Impala, Kudu, responsible for schema design.",
+          cn "\\item 使用HBase、Impala+Kudu、Hive，负责功能开发时需要使用的存储结构的设计。",
+          en "\\item using HBase, Impala, Kudu, responsible for schema design.",
           cn "\\item 基于Spring和Java或Grails和Groovy进行常规的业务开发。",
           en "\\item Regular web-backend development based on Spring and Grails, using Java or Groovy for company's flagship product DMHUB."
         ]
@@ -270,12 +322,17 @@ resume =
       tex "name" "刘极" "Ji Liu",
       basicInfo,
       about,
-      education,
       section
         "工作经历"
         "Work Experience"
-        [ convertlabBD,
+        [ clBD,
           convertlabFE
+        ],
+      section
+        "项目经验"
+        "Projects"
+        [ reactflow,
+          knwoledgeGraph
         ],
       section
         "个人项目"
@@ -284,6 +341,7 @@ resume =
         -- aEqB
         ],
       skills,
+      education,
       section
         "其他"
         "Miscellaneous"
