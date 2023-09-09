@@ -23,7 +23,7 @@ about =
     "About"
     [ paragraph
         [ cn "自学程序员，全栈开发，覆盖现代Web应用开发的整个生命流程（前端、后端、大数据、运维开发），特别专注于函数式编程和流处理系统，同时对一些偏学术的领域也有涉猎（编程语言理论、分布式系统），平时会读一些Paper做一些研究。目前在中国领先的数字化营销SaaS服务商Convertlab工作。",
-          en "I'm a self-learned programmer who has a bachelor's degree in Communications, working across almost the whole lifecycle of modern application development, but especially focusing on Functional Programming and Stream Processing. And with some academic interest in Programming Language Theory and Distributed Systems, read some papers, and do a little bit of research as a hobby. Currently work at Convertlab, a leading digital marketing company in China."
+          en "I'm a self-learned programmer who has a bachelor's degree in Communications, working across almost the whole lifecycle of modern Web application development(frontend, backend, bigdata, devops), but especially focusing on Functional Programming and Stream Processing. And with some academic interest in Programming Language Theory and Distributed Systems, read some papers, and do a little bit of research as a hobby."
         ]
     ]
 
@@ -59,11 +59,12 @@ convertlabFE =
       itemize
         [ cn $ "\\item 独立地在产品已有的H5页面搭建、渲染基础上添加了金数据的表单跳转规则功能，涉及页面渲染、图计算、多端兼容性等等问题。",
           cn $ "\\item 基于React、Redux、Typescript的业务开发。",
-          en $ "\\item Application development based on React and Redux, using Typescript.",
+          en $ "\\item application development based on React and Redux, with UI component library Ant Design, using Typescript.",
           cn $ "\\item 将Typescript的构建工具链整合进项目已有的webpack build pipeline中。",
-          en $ "\\item Integrate Typescript toolchain into the existing webpack build pipeline, enable our team to migrate to Typescript gradually.",
+          en $ "\\item integrate Typescript toolchain into the existing webpack build pipeline, enable our team to migrate to Typescript gradually.",
           cn $ "\\item 开发基于Ant Design的组件库，例如Ant Design的Tree组件。",
-          en $ "\\item Develop UI components library based on ant-design."
+          en $ "\\item develop UI components library based on ant-design.",
+          en $ "\\item develop a low-code form design application which allows user to use simple drag and drop method creating complex form with relation between questions that can be later rendered on mobile devices."
           -- cn $ "\\item 开发低代码表单搭建工具，以及对应的H5 runtime。",
           -- en $ "\\item low-code form building tools and correspond runtime."
         ]
@@ -72,7 +73,7 @@ convertlabFE =
 clBD :: Resume
 clBD =
   paragraph
-    [ datedSection (date "2021" "04" ~~ date "至今" "") $
+    [ datedSection (date "2021" "04" ~~ date "2023" "08") $
         paragraph
           [ cn "\\textbf{上海欣兆阳信息科技有限公司}",
             en "\\textbf{Convertlab Inc.}"
@@ -97,8 +98,13 @@ reactflow =
     [ title,
       cn
         "一个低延迟、高吞吐的流处理系统，使用户可以通过画布预先定义好整个营销旅程的逻辑（例如当客户发生什么事件时，如果满足什么属性，就对他以某个渠道通过某个物料进行触达）从而实现数字化、自动化营销的业务目的。",
+      en "a low-latency, high-throughput streaming processing system, represent the whole journey of a customer in a campaign which is the implementation of our clients' marketing strategy(when customer did what and then we should do what if he meets some criteria), aslo coordinate other functionalities of application to meet the goal.",
       itemize
-        [ cn "\\item 整套功能完全通过Scala语言及Akka实现，消息队列使用了Kafka，存储使用MongoDB和MySQL，普通配置的单节点可以达到20000/s左右的消费速率，并且通过Akka Cluster实现了高可用、可扩展的集群。",
+        [ en "\\item the selling point of our main product - digital marketing cloud DMHub.",
+          en "\\item able to support thousands of instances and thousand million of customers running simultaneously and stably.",
+          en "\\item enhencing existing product with the ability to choose multiple criteria for customer to enter the flow and set arbitrary number for the maxium reentrance times for one customer at a flow.",
+          en "\\item implement an algorithm to validate topology definition of a flow such like if it has cycle or other our own bussiness logic requirements with slighty modified topo sort.",
+          cn "\\item 整套功能完全通过Scala语言及Akka实现，消息队列使用了Kafka，存储使用MongoDB和MySQL，普通配置的单节点可以达到20000/s左右的消费速率，并且通过Akka Cluster实现了高可用、可扩展的集群。",
           cn "\\item 作为营销云产品的最核心功能，串联起其他模块，是前场同事销售、交付项目时的核心卖点，也是客户复购产品License时的核心竞争力。",
           cn "\\item 通过Akka Streaming和Kafak支撑上千个流程上亿客户稳定同时运行。"
         ]
@@ -110,19 +116,74 @@ knwoledgeGraph :: Resume
 knwoledgeGraph =
   paragraph
     [ title,
-      cn "POC项目，根据COO对公司战略的规划，搭建知识库优化交付效率、减少项目交付中知识传递带来的成本，通过提供一个平台让交付同事可以方便的录入并通过一定的逻辑/模式对知识进行检索。",
+      cn "根据COO对公司战略的规划，通过提供一个平台让交付同事可以方便的录入并通过一定的逻辑/模式对知识进行检索，从而搭建公司知识库体系，优化交付效率、减少项目交付中知识传递带来的成本。",
+      en "accroding COO's schedule, create a platform for saving and editing our knowledge into datebases, which can be retrieved by certain pattern, in such we can build company's knowledge system that reducing the efficiency lost between knowledge transfering therefore increase productivity.",
       itemize
         [ cn "\\item 独立设计技术方案、调研技术选型、实现产品，最终顺利完成POC并在公司做了一定范围的推广使用，取得了不错的效果。",
+          en "\\item research the whole concept of so called knowledge graph and how to use it to represent our goal practically.",
+          en "\\item represent every concepts as ontology(works like category of things) and entity that belongs to and constraints by certain ontology, and modelling it by two separate lablled property graph which store in Neo4J.",
+          en "\\item implement a graph visualization front-end application that support showing, seaching, modifying entity graph by React, Typescript and AntV.",
+          en "\\item implement the backend service based on Neo4J which utilize Neo4J's ablitiy to import ontology definition from Protégé, and use mostly only Cypher query language to implement CURD functionality of entity graph, featuring complex graph joining because every modification on entity graph must be validated by checking ontology graph, also implement basic search logic such like shortest path between two entities accroding to a certain type connection.",
           cn "\\item 使用Neo4J和Cypher查询语言，实现了一些图算法、图计算的逻辑。"
         ]
     ]
   where
-    title = datedSection (cn "") (bold "KnowledgeGraph")
+    title = datedSection (cn "") (bold "Knowledge Graph")
+
+messageEngine :: Resume
+messageEngine =
+  paragraph
+    [ title,
+      en "a middleware that unifies the approach of sending through sms or other channel that can reach out end users, made the message sending process to be robust and reliable, and the integration of thrid-party service provider much easier, also automatically get the commmon features like batching request or delay the sending if it was triggered at a time that will disturb customers.",
+      itemize
+        [ en "\\item design the high-level archtecture, divide whole project into server side and sdk library for client usage, and utlize Kafka Streams to implement stateful functionality and guarantee the effective exactly once delivery semantic.",
+          en "\\item implement the batching logic using Kafka Streams, optimize the performence by designing our own data schema that working directly on bytes instead of ser/der JSON everytimes when saving or retrieving message from kafka state store.",
+          en "\\item implement the disturbing time check and delay functionality, using HBase as storage.",
+          en "\\item research how to reduce the duplication caused by Kafka rebalance with low cost, implement it into our own kafka consumer wrapper that used by sdk."
+        ]
+    ]
+  where
+    title = datedSection (cn "") (bold "Message Engine")
+
+dataPermission :: Resume
+dataPermission =
+  paragraph
+    [ title,
+      en "working directly with CTO, reimplement our way to apply permission control to data accessing, make it more like a standard ABAC system.",
+      itemize
+        [
+          en "\\item implement a SQL AST tranformation pass which compile original SQL into permission applied SQL, which include more clauses for checking if data was accessible for current user or department, or if data was sharing to the current user manually.",
+          en "\\item implement several Spark jobs for computing sharing data based user customized rule."
+        ]
+    ]
+  where
+    title = datedSection (cn "") (bold "Data Permission")
+
+clbdru :: Resume
+clbdru =
+  paragraph
+    [ datedSection (date "2021" "04" ~~ date "2023" "08") $
+        paragraph
+          [ cn "\\textbf{上海欣兆阳信息科技有限公司}",
+            en "\\textbf{Convertlab Inc.}"
+          ],
+      paragraph
+        [ cn "\\role{数据开发工程师}{Data Team}",
+          en "\\role{Software Engineer}{Data Team}"
+        ],
+      itemize
+        [ en "\\item often in charge of design, implementation whole project or module no matter which part of technology it uses or area it belongs, and report to high level managers directly.",
+          en "\\item maintaining our flagship product's most prominent module Reactflow, a Flink-like streaming processing middleware which built on Actix and Kafka, and using MongoDB as persistence layer.",
+          en "\\item regular API development for other microservices based on Tokio, Serde and using MySQL as persistence layer.",
+          en "\\item integrate Reactflow with third-party partner like Tencent's data intelligence department YouShu.",
+          en "\\item some data processing / ETL work related with Spark(Scala), Impala, Kudu."
+        ]
+    ]
 
 convertlabBD :: Resume
 convertlabBD =
   paragraph
-    [ datedSection (date "2021" "04" ~~ date "至今" "") $
+    [ datedSection (date "2021" "04" ~~ date "2023" "08") $
         paragraph
           [ cn "\\textbf{上海欣兆阳信息科技有限公司}",
             en "\\textbf{Convertlab Inc.}"
@@ -171,20 +232,20 @@ programmingLanguages =
       cn $ "偶尔使用 " ++ occasionally ++ "，",
       cn $ "曾经学过或者感兴趣了解过 " ++ rarely ++ "(排名均不分先后)。",
       en "multilingual (not limited to any specific language),",
-      en $ "especially experienced in " ++ very ++ ",",
-      en $ "comfortable with " ++ occasionally ++ " (in random order)."
+      -- en $ "especially experienced in " ++ very ++ ",",
+      en $ "comfortable with " ++ ruBlaff ++ " (in random order)."
     ]
   where
     rarely = "C/C++ Rust Erlang OCaml"
     occasionally = "Java Groovy"
     very = "Haskell Typescript Scala"
+    ruBlaff = "Haskell Rust Scala Typescript"
 
 react :: Resume
 react =
   paragraph
     [ itemTeX "Web前端开发（React）" "Web Frontend (React)",
       cn "\\textbf{1 年}开发经验",
-      en "\\textbf{1 years} of experience",
       itemize
         [ cn "\\item 精通React和hooks API。",
           en "\\item Experienced in React and Hooks API.",
@@ -210,20 +271,32 @@ webBackend =
         ]
     ]
 
+webBackendRu :: Resume
+webBackendRu =
+  paragraph
+    [ itemTeX "Web后端开发" "Web Backend",
+      cn "\\textbf{1 年}开发经验",
+      itemize
+        [ en "\\item experienced in morden web application development that using Actor system, HTTP server/client technologies, CRUD on RDBMS or NoSQL, document API using Swagger and other general concepts.",
+          en "\\item understand Microservices architecture and containerization technology such like Kubenates and Docker, can delivery project independently."
+        ]
+    ]
+
 bigData :: Resume
 bigData =
   paragraph
     [ itemTeX "大数据开发" "BigData",
       cn "\\textbf{1 年}开发经验",
       itemize
-        [ cn "\\item 有关于分布式系统的一些基本概念，例如consensus algorithm、delivery semantic等。",
-          en "\\item Understanding basic topics about the distributed system such like consensus algorithm, delivery semantic.",
+        [ cn "\\item 对分布式系统的基本概念有牢靠的理解，例如consensus algorithm、delivery semantic等。",
+          en "\\item have solid understanding of basic topics about the distributed system such as consensus algorithm, delivery semantic.",
           cn "\\item 熟悉Kafka和并使用Kafka Streaming开发过业务应用，熟悉一般意义上流处理系统，开发过准实时的数据处理管线。",
-          en "\\item Have Deep knowledge of Kafka and general streaming processing framework, have experience of developing real-time data processing pipeline.",
-          cn "\\item 熟悉并日常使用Hadoop ecosystem的主要组件，例如HBase、Impala、Kudu。",
-          en "\\item Use components in Hadoop ecosystem like HBase, Impala, Kudu.",
+          en "\\item have Deep knowledge of Kafka and general streaming processing framework, have experience of developing real-time data processing pipeline.",
+          cn "\\item 熟悉并日常使用Hadoop ecosystem的主要组件，例如HBase HDFS，其他还包括Impala、Kudu。",
+          en "\\item use components in Hadoop ecosystem like HBase, HDFS, also Impala, Kudu.",
           cn "\\item 日常使用Spark，了解Spark的一些基本概念。",
-          en "\\item Have a basic understanding of Spark."
+          en "\\item write spark job to process data, in both RDD API and Spark SQL, have solid understanding of how spark works on the high-level.",
+          en "\\item certificated Cloudera Hadoop System Administrator."
         ]
     ]
 
@@ -232,8 +305,8 @@ evangelist =
   paragraph
     [ itemTeX "技术布道师" "Evangelist",
       itemize
-        [ cn "\\item 在公司内部为同事做Typescript和Scala的教学、分享，帮助同事解决日常使用中的各种由类型产生的问题。",
-          en "\\item teaching Typescript and Scala for colleagues, helping them to solve problems associated with types."
+        [ cn "\\item 在公司内部为同事做Typescript的教学、分享，帮助同事解决日常使用中的各种由类型产生的问题。",
+          en "\\item teaching Typescript for colleagues, helping them to solve problems associated with types."
         ]
     ]
 
@@ -242,9 +315,11 @@ algebraicGraph =
   paragraph
     [ github "GreyPlane/algebraic-graph" `datedSection` bold "AlgebraicGraph",
       cn "algebraic graph的Scala实现",
-      en "algebraic graph implemented in Scala",
+      en "algebraic graph implementation in Scala",
       itemize
-        [ cn "\\item 使用ADT来encoding图（Empty，Vertex，Connect，Overlay）这样就构成了一个半环（Overlay等于加法，Connect等于乘法）拥有良好的代数性质和组合性，在实际项目中通过这种方式实现了一个programmatically构建自动流程使用的topology的库。",
+        [ cn "\\item 阅读、并在Scala中实现了论文中的两种encoding（associated type families和plain algebraic data types)。",
+          en "\\item read, implement both associated type families and plain algebraic data types encoding and bunch graph opearations describe in paper using Scala.",
+          cn "\\item 使用四种基本结构（Empty，Vertex，Connect，Overlay）来重新描述图，这样就构成了一个半环（Overlay作为加法，Connect作为乘法），其拥有良好的代数性质和组合性，并在实际项目中通过其实现了一个可以简单高效的programmatically构建自动流程所使用的topology的库，并投入使用。",
           en "\\item Using encoding describes in this paper to build a library for constructing the topology of our Flink-like component programmatically, is an elegant solution because the good algebraic properties holds by the encoding, implement both TypeFamilies-based and ADT-based encoding in Scala."
         ]
     ]
@@ -254,10 +329,10 @@ aEqB =
   paragraph
     [ github "GreyPlane/AeqB" `datedSection` bold "A=B",
       cn "esolang A=B的解释器",
-      en "esolang A=B interpreter",
+      en "interpreter for esolang A=B in Haskell",
       itemize
-        [ cn "\\item 使用了Free Monad并且采用了data type a la carte中的实现方式。",
-          en "\\item Using Free Monad and implements via approach described in data type a la carte."
+        [ cn "\\item 使用了Free Monad并且采用了data type a la carte中描述的实现方式。",
+          en "\\item Using Free Monad and implements via the approach that described in paper data type a la carte."
         ]
     ]
 
@@ -293,13 +368,13 @@ skills =
   section "技能" "Skills" . pure $
     itemize
       [ programmingLanguages,
-        csBasic,
-        devTools,
-        webBackend,
-        fp,
         react,
+        webBackendRu,
         bigData,
-        evangelist
+        fp,
+        evangelist,
+        csBasic,
+        devTools
       ]
 
 resume :: Resume
@@ -325,20 +400,22 @@ resume =
       section
         "工作经历"
         "Work Experience"
-        [ clBD,
-          convertlabFE
+        [ convertlabFE,
+          clbdru
         ],
       section
         "项目经验"
         "Projects"
         [ reactflow,
-          knwoledgeGraph
+          knwoledgeGraph,
+          messageEngine,
+          dataPermission
         ],
       section
         "个人项目"
         "Personal Projects"
-        [ algebraicGraph
-        -- aEqB
+        [ algebraicGraph,
+          aEqB
         ],
       skills,
       education,
