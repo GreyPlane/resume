@@ -23,6 +23,6 @@ cd ..
 
 # Download/下载
 
-+ [English one-page version (pdf)](./resume.pdf)
++ [English (pdf)](./resume.pdf)
 + [中文版 (pdf)](./resume-cn.pdf)
 
