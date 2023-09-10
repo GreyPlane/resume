@@ -1,0 +1,139 @@
+% !TEX program = xelatex
+% This file is generated, don't manually edit!
+\documentclass{resume}
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+\usepackage{linespacing_fix}
+\usepackage[fallback]{xeCJK}
+\begin{document}
+\renewcommand\headrulewidth{0pt}
+\name{刘极}
+\basicInfo{
+\email{709327148@qq.com}\textperiodcentered\
+\phone{(+86) 150-0019-3830}\textperiodcentered\
+\github[GreyPlane]{https://github.com/GreyPlane}\textperiodcentered\
+}
+\section{简介}
+全栈开发，工作的范围覆盖现代Web应用开发的整个流程（前端、后端、大数据、运维开发），特别专注于函数式编程和流处理系统，同时对一些偏学术的领域也有涉猎（编程语言理论、分布式系统），平时也会读一些Paper、做一些研究作为兴趣。
+\section{工作经历}
+\datedsubsection{\textbf{上海欣兆阳信息科技有限公司}}{2020.06 -- 2021.03}
+\role{软件开发工程师}{Application Team}
+\begin{itemize}[parsep=0.25ex]
+\item 开发了一个低代码表单设计应用，让用户可以通过拖拉拽设计复杂的表单，并且可以为题目定义复杂的跳转规则，然后作为物料发送给终端用户在手机上浏览、提交。
+\item 使用React、Redux、Ant Design、Javascript/Typescript进行常规的业务开发。
+\item 将Typescript的构建工具链整合进已有的webpack build pipeline中，使团队可以逐渐迁移到Typescript。
+\item 开发基于Ant Design的组件库。
+\end{itemize}
+\datedsubsection{\textbf{上海欣兆阳信息科技有限公司}}{2021.04 -- 2023.08}
+\role{软件开发工程师}{Data Team}
+\begin{itemize}[parsep=0.25ex]
+\item 公司旗舰产品DMHub的核心功能，一个类似于Flink的流处理中间件唯二的开发人员，使用Scala和Akka，依赖Kafka并使用MongoDB作为存储。
+\item 常常负责一整个项目/模块的技术方案设计及其实现，无论涉及的是前端、后端或者大数据，有时也处理一些运维问题，并且经常直接向高层管理汇报。
+\item 同产品经理和开发经理沟通、安排任务，进行产品各种功能模块的新功能开发和维护（包括前端、后端和数据，使用各种语言）。
+\item 为功能所需的存储选择适合的存储技术并设计较优的存储结构（表结构或者单纯的schema），实现功能所需的分析SQL（Impala）或者批处理Job（Spark）。
+\end{itemize}
+\section{项目经验}
+\datedsubsection{\textbf{Reactflow}}{}
+一个低延迟、高吞吐的流处理系统，使用户可以通过画布预先定义好整个营销旅程的逻辑（例如当客户产生某个行为时，如果满足什么条件，就对他以某个渠道通过某个物料进行触达）从而实现自动化营销目的。
+\begin{itemize}[parsep=0.25ex]
+\item 营销云产品的最核心功能，是前场同事销售、交付项目时的核心卖点，也是客户复购产品License时的核心竞争力。
+\item 可以稳定支持上千个流程实例以及上亿客户同时运行。
+\item 增强了现有产品使其单个流程可以设定多个开始条件，并且允许设定每个客户进入单个流程实例的最大次数。
+\item 通过修改拓扑排序算法实现了一个通用的函数来校验用户定义的流程是否合法，例如是否存在环、是否存在无法到达的节点以及其他业务上的规则。
+\end{itemize}
+\datedsubsection{\textbf{Knowledge Graph}}{}
+根据COO对公司战略的规划，通过提供一个平台让交付同事可以方便的录入并通过一定的逻辑/模式对知识进行检索，从而搭建公司知识库体系，优化交付效率、减少项目交付中知识传递带来的成本。
+\begin{itemize}[parsep=0.25ex]
+\item 研究了知识图谱的相关概念，以及如何使用其来表示具体的知识体系。
+\item 将具体的知识点作为知识图谱中的实体，知识点所属的分类作为本体，同时每个实体都属于一个本体，并且本体定义了实体之间是否可能产生联系并且规定了联系的种类，将这样的关系使用两个不同的lablled property graph来建模并且存储在Neo4J中。
+\item 使用React、Typescript和AntV实现了前端的图可视化应用，可以显示、搜索、修改、链接实体图。
+\item 基本上完全通过Cypher查询语言实现了一个后端服务，实现了对于实体图的CRUD，并且通过比较复杂的图的joining实现了链接实体时校验其所属的本体之间的关系、约束是否满足，并且通过利用Neo4J的插件， 实现了从Protégé中导入本体定义的功能。
+\item 使用Neo4J和Cypher查询语言，实现了一些图算法、图计算的逻辑。
+\end{itemize}
+\datedsubsection{\textbf{Message Engine}}{}
+通过将各个渠道（短信、邮件等）应用所需的常见功能（批量、背压、防骚扰等）提取出来在中间件中实现，使得现有的渠道应用的逻辑更统一、清晰、稳定，并且使新渠道的对接更高效。
+\begin{itemize}[parsep=0.25ex]
+\item 设计了总体架构，将系统分为作为服务独立存在的引擎部分以及渠道应用需要使用的SDK部分，并且选择了Kafka Streams用来实现引擎部分的需要中间状态的功能（批量、速率监控等）。
+\item 通过Kafka Streams实现了对消息进行批量聚合的逻辑，同时通过设计了我们自己的直接基于Byte的数据结构，避免了每次读写State Store时的JSON序列化/序列化，将性能提高了数倍。
+\item 实现了防骚扰功能，即检查当前时段是否适合发送并且根据用户配置将时间段内的消息推迟进行发送，使用HBase作为存储。
+\item 研究了如何最低成本的减少因为Kafka rebalance产生的消息重复，并将成果实现进了SDK中。
+\end{itemize}
+\datedsubsection{\textbf{Data Permission}}{}
+直接受命于CTO，重新实现将配置的数据权限应用到产品的各种查询中的方式，使其更接近于标准的ABAC系统。
+\begin{itemize}[parsep=0.25ex]
+\item 实现了一个SQL AST处理的pass，将原本的查询SQL编译到应用了数据权限的SQL，增加更多的子句和子查询来实现例如筛选出当前部门、用户可见的数据，或者手动授权给当前用户的数据等功能。
+\item 实现了几个Spark job用于计算基于用户配置的规则的手动授权。
+\end{itemize}
+\section{个人项目}
+\datedsubsection{\textbf{AlgebraicGraph}}{\url{https://github.com/GreyPlane/algebraic-graph}}
+algebraic graph的Scala实现
+\begin{itemize}[parsep=0.25ex]
+\item 阅读、并在Scala中实现了论文中的两种encoding（associated type families和plain algebraic data types)。
+\item 使用四种基本结构（Empty，Vertex，Connect，Overlay）来重新描述图，这样就构成了一个半环（Overlay作为加法，Connect作为乘法），其拥有良好的代数性质和组合性，并在实际项目中通过其实现了一个可以简单高效的programmatically构建自动流程所使用的topology的库，并投入使用。
+\end{itemize}
+\datedsubsection{\textbf{A=B}}{\url{https://github.com/GreyPlane/AeqB}}
+esolang A=B的解释器
+\begin{itemize}[parsep=0.25ex]
+\item 使用了Free Monad并且采用了data type a la carte中描述的实现方式。
+\end{itemize}
+\section{技能}
+\begin{itemize}[parsep=0.25ex]
+\item
+\textbf{编程语言}:
+\textbf{泛语言}（编程不受特定语言限制），
+尤其熟悉且日常使用 Haskell Typescript Scala Groovy Java，
+曾经学过或者感兴趣了解过 Rust Erlang OCaml(排名均不分先后)。
+\item
+\textbf{Web前端开发（React）}:
+\begin{itemize}[parsep=0.25ex]
+\item 精通React和hooks API。
+\item 精通Typescript在React以及相关生态中的使用。
+\item 熟悉React周边生态，调研、使用过包括状态管理、路由、Query Library等在内的各种库，有独立选型、搭建、开发完整项目的能力。
+\end{itemize}
+\item
+\textbf{Web后端开发}:
+\begin{itemize}[parsep=0.25ex]
+\item 使用Scala语言和Akka的主要部件（actor、typed actor、streaming、http等）进行Web Application或者中间件开发，做过比较小的Akka cluster。
+\item 使用cats等typelevel出品的函数式编程库，了解cats-effect、ZIO等effect库，可以使用shapeless做generic programming。
+\item 使用Groovy语言和Grails、GORM进行Web后端开发。
+\item 使用Java语言和Spring、Springboot、Mybatis和Mybatis plus以及Google guava作为util库进行Web后端开发。
+\item 使用MySQL、Redis、Elasticsearch、MongoDB作为应用存储，Kafka作为Message Queue。
+\item 理解微服务架构，熟悉k8s、docker等微服务、容器技术，能独立交付完整的项目。
+\end{itemize}
+\item
+\textbf{大数据开发}:
+\begin{itemize}[parsep=0.25ex]
+\item 对分布式系统的基本概念有牢靠的理解，例如consensus algorithm、delivery semantic等，阅读过一些领域知名的论文。
+\item 深入理解Kafka和并使用Kafka Streaming开发过业务应用，研究过一般意义上流处理系统，阅读过相关论文和书籍，开发过准实时的数据处理管线。
+\item 理解现代分布式数据库/分析平台的基本架构，日常使用HBase，HDFS和Impala、Kudu。
+\item 使用RDD API和Spark SQL实现功能所需要的数据处理Job，对于Spark的运行模型有坚实的理解，能对Job进行优化。
+\item 认证的Cloudera Hadoop系统管理员。
+\end{itemize}
+\item
+\textbf{函数式编程}:
+\begin{itemize}[parsep=0.25ex]
+\item 有工程化函数式编程的能力。
+\item 能解决需要更深入的类型论或者范畴论知识才能解决的问题。
+\end{itemize}
+\item
+\textbf{技术布道师}:
+\begin{itemize}[parsep=0.25ex]
+\item 在公司内部为同事做Typescript的教学、分享，帮助同事解决日常使用中的各种由类型产生的问题。
+\end{itemize}
+\item
+\textbf{计算机科学基础}:
+学习过CSAPP、SICP等，有比较坚实的CS基础，了解一些PLT知识。
+\item
+\textbf{开发工具}:
+能适应任何编辑器/操作系统，平常在 MacOS下使用 Vscode, IntelliJ、Emacs
+有使用 Jira、Git 等团队协作工具的经验。
+\end{itemize}
+\section{教育经历}
+\datedsubsection{\textbf{上海出版印刷高等专科学校}，出版学。}{2015.08 -- 2018.06}
+\datedsubsection{\textbf{上海理工大学}，传播学，学士学位。}{2018.08 -- 2020.06}
+\section{其他}
+\begin{itemize}[parsep=0.25ex]
+\item 语言: English - 听说读熟练 (英语六级)
+\item 在 \href{https://www.codewars.com/users/GreyPlane}{CodeWars} 上，以 Haskell、Agda 为主，达到\textbf{3 kyu}
+\end{itemize}
+\end{document}
